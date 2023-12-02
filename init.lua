@@ -175,6 +175,13 @@ require('lazy').setup({
   },
 
   {
+    'simrat39/rust-tools.nvim',
+    ft = { 'rust' },
+    config = function()
+      require('rust-tools').setup({})
+    end
+  },
+  {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
@@ -239,6 +246,7 @@ require('lazy').setup({
   require 'kickstart.plugins.nvimtree',
   require 'kickstart.plugins.dev-icons',
   require 'kickstart.plugins.rust-vim',
+  -- require 'kickstart.plugins.rust-tools',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    You can use this folder to prevent any conflicts with this init.lua if you're interested in keeping
