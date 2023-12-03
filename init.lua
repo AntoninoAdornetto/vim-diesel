@@ -246,6 +246,7 @@ require('lazy').setup({
   require 'kickstart.plugins.nvimtree',
   require 'kickstart.plugins.dev-icons',
   require 'kickstart.plugins.rust-vim',
+  require 'kickstart.plugins.telescope-undo',
   -- require 'kickstart.plugins.rust-tools',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
