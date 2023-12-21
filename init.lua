@@ -112,6 +112,10 @@ require('lazy').setup({
   },
 
   {
+    'github/copilot.vim',
+  },
+
+  {
     'windwp/nvim-autopairs',
     event = "InsertEnter",
     opts = {}
@@ -181,6 +185,7 @@ require('lazy').setup({
       require('rust-tools').setup({})
     end
   },
+
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
