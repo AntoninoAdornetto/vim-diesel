@@ -242,6 +242,10 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
+  {
+    'vim-test/vim-test', config = function() end
+  },
+
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -344,6 +348,13 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous dia
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+
+-- Testing remaps
+vim.api.nvim_set_keymap('n', '<leader>t', ':TestNearest<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<leader>T', ':TestFile<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<leader>a', ':TestSuite<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<leader>l', ':TestLast<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<leader>g', ':TestVisit<CR>', { silent = true })
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
