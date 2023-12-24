@@ -336,6 +336,9 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 -- Remap for opening fugitive
 vim.keymap.set("n", "<leader>G", vim.cmd.Git)
 
+-- Swap files piss me off
+vim.opt.swapfile = false;
+
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
