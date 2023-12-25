@@ -4,6 +4,11 @@ return {
   config = function()
     local null_ls = require('null-ls')
     local sources = {
+      null_ls.builtins.formatting.golines.with({
+        filetypes = {
+          "go"
+        }
+      }),
       null_ls.builtins.formatting.prettierd.with({
         filetypes = {
           "css", "graphql", "html", "javascript", "javascriptreact",
