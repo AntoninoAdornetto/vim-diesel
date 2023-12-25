@@ -653,6 +653,21 @@ local custom_servers = {
   end,
 }
 
+mason_lspconfig.setup_handlers {
+  function(server_name)
+    if custom_servers[server_name] then
+      require('lspconfig')[server_name].setup(custom_servers[server_name]())
+    else
+      require('lspconfig')[server_name].setup {
+        capabilities = capabilities,
+        on_attach = on_attach,
+        settings = servers[server_name],
+        filetypes = (servers[server_name] or {}).filetypes,
+      }
+    end
+  end,
+}
+
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
 local cmp = require 'cmp'
