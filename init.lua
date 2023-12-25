@@ -610,9 +610,29 @@ mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
 }
 
-mason_lspconfig.setup_handlers {
-  function(server_name)
-    require('lspconfig')[server_name].setup {
+local function organize_imports()
+  local params = {
+    command = "_typescript.organizeImports",
+    arguments = { vim.api.nvim_buf_get_name(0) },
+  }
+  vim.lsp.buf.execute_command(params)
+end
+
+local custom_servers = {
+  tsserver = function()
+    return {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      settings = servers["tsserver"],
+      filetypes = (servers["tsserver"] or {}).filetypes,
+      commands = {
+        OrganizeImports = {
+          organize_imports,
+          description = "Organize imports",
+        }
+      }
+    }
+  end,
       capabilities = capabilities,
       on_attach = on_attach,
       settings = servers[server_name],
