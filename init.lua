@@ -147,11 +147,18 @@ require('lazy').setup({
   },
 
   {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
+    'EdenEast/nightfox.nvim',
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'onedark'
+      require('nightfox').setup({
+        options = {
+          transparent = true,
+          styles = {
+            keywords = "bold"
+          }
+        }
+      })
+      vim.cmd.colorscheme 'carbonfox'
     end,
   },
 
