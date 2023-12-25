@@ -591,8 +591,8 @@ local servers = {
   },
 }
 
--- Need to write a function that will work for format servers as well but here is a note to self on the required format servers
--- I should ensure are installed
+-- @TODO - Move ensure_installed formatters to the format.lua file once you determine how to do so.
+-- For the meantime, I will document the formatters I should install
 -- rustywind
 -- prettierd
 
