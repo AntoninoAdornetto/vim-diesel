@@ -69,6 +69,12 @@ require('lazy').setup({
     },
   },
 
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    opts = {} -- this is equalent to setup({}) function
+  },
+
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim',  opts = {} },
   {
@@ -160,6 +166,16 @@ require('lazy').setup({
       })
       vim.cmd.colorscheme 'carbonfox'
     end,
+  },
+
+  {
+    "roobert/tailwindcss-colorizer-cmp.nvim",
+    -- optionally, override the default options:
+    config = function()
+      require("tailwindcss-colorizer-cmp").setup({
+        color_square_width = 2,
+      })
+    end
   },
 
   {
@@ -547,6 +563,8 @@ local servers = {
   -- pyright = {},
   -- rust_analyzer = {},
   tsserver = {},
+  eslint = {},
+  tailwindcss = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
   lua_ls = {
@@ -599,6 +617,9 @@ cmp.setup {
   },
   completion = {
     completeopt = 'menu,menuone,noinsert',
+  },
+  formatting = {
+    format = require("tailwindcss-colorizer-cmp").formatter
   },
   mapping = cmp.mapping.preset.insert {
     ['<C-n>'] = cmp.mapping.select_next_item(),
