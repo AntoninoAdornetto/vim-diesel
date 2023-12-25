@@ -240,22 +240,24 @@ require('lazy').setup({
 -- Set highlight on search
 vim.o.hlsearch = false
 
--- Make line numbers default
 vim.wo.number = true
+vim.o.relativenumber = true
+vim.o.tabstop = 2
+vim.o.softtabstop = 2
+vim.o.shiftwidth = 2
+vim.o.smartindent = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
-
--- Sync clipboard between OS and Neovim.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
-vim.o.clipboard = 'unnamedplus'
 
 -- Enable break indent
 vim.o.breakindent = true
 
 -- Save undo history
 vim.o.undofile = true
+
+-- Swap file warning pisses me off
+vim.opt.swapfile = false;
 
 -- Case-insensitive searching UNLESS \C or capital in search
 vim.o.ignorecase = true
@@ -283,6 +285,19 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+-- Remap for moving selected line(s) up/down
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- Remap for copying into system clipboard
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+
+-- Remap for opening NetRW
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+
+-- Remap for opening fugitive
+vim.keymap.set("n", "<leader>G", vim.cmd.Git)
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
