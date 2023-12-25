@@ -578,6 +578,11 @@ local servers = {
   },
 }
 
+-- Need to write a function that will work for format servers as well but here is a note to self on the required format servers
+-- I should ensure are installed
+-- rustywind
+-- prettierd
+
 -- Setup neovim lua configuration
 require('neodev').setup()
 
