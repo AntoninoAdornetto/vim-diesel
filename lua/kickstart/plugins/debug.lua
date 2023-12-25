@@ -39,6 +39,7 @@ return {
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
         'delve',
+        'js-debug-adapter'
       },
     }
 
@@ -80,6 +81,29 @@ return {
     dap.listeners.after.event_initialized['dapui_config'] = dapui.open
     dap.listeners.before.event_terminated['dapui_config'] = dapui.close
     dap.listeners.before.event_exited['dapui_config'] = dapui.close
+
+    -- Node JS config
+    dap.adapters["pwa-node"] = {
+      type = "server",
+      host = "127.0.0.1",
+      port = 8123,
+      executable = {
+        command = "js-debug-adapter",
+      }
+    }
+
+    for _, language in ipairs { "typescript", "javascript" } do
+      dap.configurations[language] = {
+        {
+          type = "pwa-node",
+          request = "launch",
+          name = "Launch File",
+          program = "${file}",
+          cwd = "${workspaceFolder}",
+          runtimeExecutable = "node",
+        }
+      }
+    end
 
     -- Install golang specific config
     require('dap-go').setup()
