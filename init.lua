@@ -573,10 +573,10 @@ require('mason-lspconfig').setup()
 --  define the property 'filetypes' to the map in question.
 local servers = {
   -- clangd = {},
-  -- gopls = {},
   -- pyright = {},
   -- rust_analyzer = {},
   tsserver = {},
+  gopls = {},
   eslint = {},
   tailwindcss = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
@@ -633,10 +633,22 @@ local custom_servers = {
       }
     }
   end,
+  gopls = function()
+    return {
       capabilities = capabilities,
       on_attach = on_attach,
-      settings = servers[server_name],
-      filetypes = (servers[server_name] or {}).filetypes,
+      command = { "gopls" },
+      settings = {
+        gopls = {
+          completeUnimported = true,
+          usePlaceholders = true,
+          analyses = {
+            unusedparams = true,
+          },
+        },
+      },
+      filetypes = { "go", "gomod", "gowork", "gotmpl" },
+      root_dir = require("lspconfig.util").root_pattern("go.work", "go.mod", ".git"),
     }
   end,
 }
