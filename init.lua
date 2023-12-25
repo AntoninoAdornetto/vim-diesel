@@ -595,6 +595,7 @@ local servers = {
 -- For the meantime, I will document the formatters I should install
 -- rustywind
 -- prettierd
+-- golines
 
 -- Setup neovim lua configuration
 require('neodev').setup()
