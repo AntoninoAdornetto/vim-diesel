@@ -4,9 +4,24 @@ return {
   config = function()
     local null_ls = require('null-ls')
     local sources = {
+      null_ls.builtins.diagnostics.mypy.with({
+        filetypes = {
+          "python"
+        }
+      }),
+      null_ls.builtins.diagnostics.ruff.with({
+        filetypes = {
+          "python"
+        }
+      }),
       null_ls.builtins.formatting.golines.with({
         filetypes = {
           "go"
+        }
+      }),
+      null_ls.builtins.formatting.black.with({
+        filetypes = {
+          "python"
         }
       }),
       null_ls.builtins.formatting.prettierd.with({

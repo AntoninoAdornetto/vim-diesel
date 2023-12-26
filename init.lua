@@ -573,8 +573,8 @@ require('mason-lspconfig').setup()
 --  define the property 'filetypes' to the map in question.
 local servers = {
   -- clangd = {},
-  -- pyright = {},
   -- rust_analyzer = {},
+  pyright = { filetypes = { "python" } },
   tsserver = {},
   gopls = {},
   eslint = {},
@@ -596,6 +596,9 @@ local servers = {
 -- rustywind
 -- prettierd
 -- golines
+-- mypy
+-- ruff
+-- black
 
 -- Setup neovim lua configuration
 require('neodev').setup()
