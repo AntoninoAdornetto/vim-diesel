@@ -253,6 +253,8 @@ require('lazy').setup({
   require 'kickstart.plugins.autoformat',
   require 'kickstart.plugins.debug',
   require 'kickstart.plugins.none-ls',
+  require 'kickstart.plugins.nvim-tree',
+  require 'kickstart.plugins.dev-icons',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    You can use this folder to prevent any conflicts with this init.lua if you're interested in keeping
@@ -324,7 +326,8 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 
 -- Remap for opening NetRW
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+-- uncomment if you want to switch from nvim-tree to NetRW
+-- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- Remap for opening fugitive
 vim.keymap.set("n", "<leader>G", vim.cmd.Git)
