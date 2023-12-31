@@ -291,8 +291,6 @@ vim.o.undofile = true
 -- Swap file warning pisses me off
 vim.opt.swapfile = false;
 
--- Case-insensitive searching UNLESS \C or capital in search
-vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Keep signcolumn on by default
