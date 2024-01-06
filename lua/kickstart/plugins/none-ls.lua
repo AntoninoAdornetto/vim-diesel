@@ -65,24 +65,4 @@ return {
     })
   end,
 }
--- return {
---   config = function()
---     local null_ls = require("null-ls")
---     local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
---
---     local opts = {
---       sources = {
---         null_ls.builtins.formatting.prettierd,
---       },
---       on_attach = function(client, bufnr)
---
---       end,
---     }
---
---     return opts
---
---     -- null_ls.builtins.formatting = {
---     --   null_ls.builtins.formatting.prettierd
---     -- }
---   end,
 -- }
