@@ -1,11 +1,30 @@
 return {
-  'jose-elias-alvarez/null-ls.nvim',
+  'nvimtools/none-ls.nvim',
+  event = "VeryLazy",
   config = function()
-    -- local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
     local null_ls = require('null-ls')
-
     local sources = {
-      null_ls.builtins.formatting.prettier.with({
+      null_ls.builtins.diagnostics.mypy.with({
+        filetypes = {
+          "python"
+        }
+      }),
+      null_ls.builtins.diagnostics.ruff.with({
+        filetypes = {
+          "python"
+        }
+      }),
+      null_ls.builtins.formatting.golines.with({
+        filetypes = {
+          "go"
+        }
+      }),
+      null_ls.builtins.formatting.black.with({
+        filetypes = {
+          "python"
+        }
+      }),
+      null_ls.builtins.formatting.prettierd.with({
         filetypes = {
           "css", "graphql", "html", "javascript", "javascriptreact",
           "json", "less", "markdown", "scss", "typescript",
@@ -44,5 +63,6 @@ return {
         end
       end,
     })
-  end
+  end,
 }
+-- }
