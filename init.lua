@@ -259,6 +259,10 @@ require('lazy').setup({
     event = "BufRead",
   },
 
+  {
+    'mbbill/undotree'
+  },
+
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -341,6 +345,9 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 
 -- Remap for opening fugitive
 vim.keymap.set("n", "<leader>G", vim.cmd.Git)
+
+-- Remap for opening undo tree
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
