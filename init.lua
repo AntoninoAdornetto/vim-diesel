@@ -33,6 +33,9 @@ require('lazy').setup({
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
+  -- Database interactions
+  'tpope/vim-dadbod',
+
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   {
@@ -204,7 +207,7 @@ require('lazy').setup({
     -- See `:help lualine.txt`
     opts = {
       options = {
-        icons_enabled = false,
+        icons_enabled = true,
         theme = 'carbonfox',
         component_separators = '|',
         section_separators = '',
@@ -271,6 +274,7 @@ require('lazy').setup({
   require 'kickstart.plugins.none-ls',
   require 'kickstart.plugins.nvim-tree',
   require 'kickstart.plugins.dev-icons',
+  require 'kickstart.plugins.dad-bod-ui'
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    You can use this folder to prevent any conflicts with this init.lua if you're interested in keeping
@@ -746,6 +750,13 @@ cmp.setup {
     { name = 'path' },
   },
 }
+
+cmp.setup.filetype({ "sql" }, {
+  sources = {
+    { name = "vim-dadbod-completion" },
+    { name = "buffer" }
+  }
+})
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
