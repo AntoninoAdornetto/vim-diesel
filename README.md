@@ -11,7 +11,7 @@ This repository contains my personal Neovim configuration, designed for efficien
 1. Clone the Repo
 
 ```sh
-git clone git@github.com:AntoninoAdornetto/vim-diesel-kickstart.git
+git clone git@github.com:AntoninoAdornetto/vim-diesel.git
 ```
 
 2. Install Plugins
