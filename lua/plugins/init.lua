@@ -61,6 +61,8 @@ require('lazy').setup({
   require 'plugins.auto_pairs',
 
   require 'plugins.mini_nvim',
+
+  require 'plugins.colorizer',
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
