@@ -203,6 +203,7 @@ return {
       'ruff',
       'clang-format',
       'codelldb',
+      'sqlfmt',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
