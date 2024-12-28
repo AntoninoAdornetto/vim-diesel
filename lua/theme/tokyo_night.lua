@@ -5,8 +5,9 @@ return {
     priority = 1000, -- Make sure to load this before all the other start plugins.
     config = function()
       require('tokyonight').setup {
-        style = 'night',
-        transparent = true,
+        style = 'storm',
+        lualine_bold = true,
+        transparent = false,
         styles = {
           keywords = { italic = true },
           functions = { bold = true },
@@ -42,7 +43,7 @@ return {
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
       -- vim.cmd.colorscheme 'tokyonight-night'
-      vim.cmd.colorscheme 'tokyonight'
+      vim.cmd.colorscheme 'tokyonight-storm'
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
@@ -54,9 +55,12 @@ return {
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     -- See `:help lualine.txt`
     config = function()
+      local custom_tokyo = require 'lualine.themes.tokyonight-storm'
+      custom_tokyo.normal.c.bg = 'None'
+
       require('lualine').setup {
         options = {
-          theme = 'tokyonight-night',
+          theme = custom_tokyo,
         },
       }
     end,
