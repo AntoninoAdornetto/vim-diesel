@@ -56,6 +56,8 @@ require('lazy').setup({
 
   require 'plugins.tree_sitter',
 
+  require 'plugins.undo',
+
   require 'plugins.debug',
 
   require 'plugins.auto_pairs',
