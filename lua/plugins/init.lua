@@ -46,9 +46,9 @@ require('lazy').setup({
 
   require 'plugins.tree',
 
-  -- require 'theme.nightfox',
+  require 'theme.nightfox',
 
-  require 'theme.tokyo_night',
+  -- require 'theme.tokyo_night',
 
   require 'plugins.auto_format',
 
