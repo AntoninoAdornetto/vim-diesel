@@ -1,6 +1,6 @@
 # vim-diesel
 
-This repository contains my personal Neovim configuration, designed for efficiency, ease of use, and extensibility. It leverages the kickstart.nvim framework for a quick start and uses lazy.nvim as the plugin manager.
+Lean, mean, keyboard smashing neovim configuration.
 
 # Prerequisites
 
